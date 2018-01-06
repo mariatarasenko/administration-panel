@@ -1,6 +1,6 @@
 .tabs-list {
   display: flex;
-  background: #f0efe9;
+  background: $beige;
 }
 
 .tabs-item {
@@ -10,13 +10,13 @@
   &.active {
     .tabs-link {
       background: #fff;
-      color: #0548be;
+      color: $blue;
     }
   }
 }
 
 .tabs-link {
-  min-width: 180px;
+  min-width: rem(180px);
   display: flex;
   align-items: center;
   padding: 0 10px;

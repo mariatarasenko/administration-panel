@@ -6,6 +6,10 @@
   width: 50%;
   padding-right: 90px;
   margin-bottom: 25px;
+
+  @media screen and (max-width: $big_tablets){
+    width: 100%;
+}
 }
 
 .skills-title {

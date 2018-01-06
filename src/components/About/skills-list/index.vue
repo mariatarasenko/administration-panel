@@ -10,20 +10,20 @@
       :percents="skill.percents"
       @removeSkill="removeSkill(skill.id)"
     )
-    .add-skill  
-        .add-skill-row
-            app-input(
-                type="text"
-                placeholder="Название"
-                v-model="skillName"
-                :error="validation.hasError('skillName')"
-            )
-        .skill-error {{validation.firstError('skillName')}}
-        app-button(
-          title="Добавить"
-          @click="addSkill(skillGroup)"
-          :disabled="validation.hasError('skillName')"  
+    .add-skill
+      .add-skill-row
+        app-input(
+          type="text"
+          placeholder="Название"
+          v-model="skillName"
+          :error="validation.hasError('skillName')"
         )
+      .skill-error {{validation.firstError('skillName')}}
+      app-button(
+        title="Добавить"
+        @click="addSkill(skillGroup)"
+        :disabled="validation.hasError('skillName')"
+      )
 </template>
 <script>
 
@@ -36,48 +36,45 @@ export default {
       return Validator.value(value).required('Название не может быть пустым')
     }
   },
-  data:() => ({
-      skillName: '',
-      toto: ''
+  data: () => ({
+    skillName: '',
+    toto: ''
   }),
-  props:{
-      skillGroup: String,
-      skills: Array
+  props: {
+    skillGroup: String,
+    skills: Array
   },
   methods: {
-      addSkill(skillGroup){
-          this.$validate().then(success => {
-              if (!success)return
-              this.$emit('addSkill',{
-                  id: Math.round(Math.random() * 1000000),
-                  name: this.skillName,
-                  percents: 0,
-                  type: this.checkSkillType(skillGroup)
-              })
-          })
-      },
-      removeSkill(skillId) {
-          this.$emit('removeSkill', skillId)
-      },
-      checkSkillType(skillGroup){
-          switch (skillGroup) {
-              case 'Frontend':
-                return 1
-              case 'Workflow':
-                return 2
-              case 'Backend':
-                return 3
-              
-          }
+    addSkill(skillGroup) {
+      this.$validate().then(success => {
+        if (!success) return
+        this.$emit('addSkill', {
+          id: Math.round(Math.random() * 1000000),
+          name: this.skillName,
+          percents: 0,
+          type: this.checkSkillType(skillGroup)
+        })
+      })
+    },
+    removeSkill(skillId) {
+      this.$emit('removeSkill', skillId)
+    },
+    checkSkillType(skillGroup) {
+      switch (skillGroup) {
+        case 'Frontend':
+          return 1
+        case 'Workflow':
+          return 2
+        case 'Backend':
+          return 3
       }
+    }
   },
-
   components: {
-      Skill: require ('../skill'),
-      AppInput: require ('_common/Input'),
-      AppButton: require ('_common/Button')
+    Skill: require('../skill'),
+    AppInput: require('_common/Input'),
+    AppButton: require('_common/Button')
   }
 }
 </script>
 <style src="./style.scss" lang="scss" scoped></style>
-

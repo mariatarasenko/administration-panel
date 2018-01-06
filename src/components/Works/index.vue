@@ -2,34 +2,34 @@
   .about
     h2.title Страница "Мои работы"
     .form
-        h3.form-title Добавить работу 
-        .row
-            app-input(
-                placeholder="Название проекта"
-                type="text"
-                v-model="fields.title"
-            )
-        .row
-            app-input(
-                placeholder="Технилогии"
-                type="text"
-                v-model="fields.tech"
-            )
-        .row
-            label.upload
-                input.tipe-file(
-                    type="file"
-                    @change="getFile($event)"
-                )
-                .upload__icon
-                .upload__text Загрузить картинку
-            div.error-message {{validation.firstEror('fields.file')}}
-        .row
-            app-button(
-                title="Добавить"
-                :disabled="!fields.file || validation.hasError('fields.file') "
-                @click="sendData"
-            )
+      h3.form-title Добавить работу
+      .row
+        app-input(
+          placeholder="Название проекта"
+          type="text"
+          v-model="fields.title"
+        )
+      .row
+        app-input(
+          placeholder="Технологии"
+          type="text"
+          v-model="fields.tech"
+        )
+      .row
+        label.upload
+          input.type-file(
+            type="file"
+            @change="getFile($event)"
+          )
+          .upload__icon
+          .upload__text Загрузить картинку
+        div.error-message {{validation.firstError('fields.file')}}
+      .row
+        app-button(
+          title="Добавить"
+          :disabled="!fields.file || validation.hasError('fields.file')"
+          @click="sendData"
+        )
 </template>
 <script>
 import { Validator } from 'simple-vue-validator'
@@ -84,4 +84,3 @@ export default {
 }
 </script>
 <style src="./style.scss" lang="scss" scoped></style>
-

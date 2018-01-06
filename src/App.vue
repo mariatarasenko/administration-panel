@@ -1,7 +1,7 @@
 <template lang="pug">
   .admin
     .header
-      App-header
+      App-Header
     .tabs
       Tabs
     .content

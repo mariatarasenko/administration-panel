@@ -1,5 +1,5 @@
 .form-title {
-  margin-bottom: 15px;
+  margin-bottom: rem(15px);
 }
 
 .container {
@@ -11,12 +11,12 @@
 }
 
 .table {
-  max-height: 400px;
+  max-height: rem(400px);
   overflow: auto;
 }
 
 .row {
-  margin-bottom: 20px;
+  margin-bottom: rem(20px);
 }
 
 .posts {
@@ -25,5 +25,5 @@
 
 .blog-textarea {
   width: 80%;
-  height: 165px;
+  height: rem(165px);
 }
