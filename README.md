@@ -1,6 +1,9 @@
-# admin-portfolio
+# portfolio-admin-vue
 
 > A Vue.js project
+
+> Administration panel for portfolio project. 
+
 
 ## Build Setup
 
